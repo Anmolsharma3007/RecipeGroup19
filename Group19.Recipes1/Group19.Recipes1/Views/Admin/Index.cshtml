@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Group19.Recipes1.Models.UserViewModel>
+
+@{
+    ViewBag.Title = "title";    
+}
+
+<table class="table table-striped">
+    <tr>        
+        <th>Name</th>
+        <th>Is Admin</th>
+        <th>Is Editor</th>        
+    </tr>
+
+    @foreach (var user in Model)
+    {
+        @Html.Partial("EditorTemplates/UserViewModelView", user);
+    }
+</table>

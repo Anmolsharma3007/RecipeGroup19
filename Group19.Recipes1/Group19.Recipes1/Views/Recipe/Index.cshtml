@@ -1,0 +1,44 @@
+﻿@model  IEnumerable<Group19.Recipes1.Models.RecipeViewModel>
+
+<div id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="~/Content/img/1.jpg" alt="First slide">
+        </div>
+        <div class="item">
+            <img src="~/Content/img/2.jpg" alt="Second slide">
+        </div>
+        <div class="item">
+            <img src="~/Content/img/3.jpg" alt="Third slide">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <br />
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a href='@Url.Action("AddNew", "Recipe")' class="btn btn-success">
+            Add new recipe
+        </a>
+    }
+
+    <br />
+
+    <div class="row">
+        @foreach (var recipe in Model)
+        {
+            <div class="col-md-3">
+                @*<img class="recipeImage" src="~/Content/img/59170.jpg" />*@
+                <div class="recipeName">@Html.ActionLink(@recipe.Name, "Details", new {id = @recipe.Id})</div>
+                <div class="recipeDesc">@recipe.CookingTime / @recipe.PreparationTime</div>
+                <div class="submitter">@(recipe.Author ?? "Anonymous")</div>
+            </div>
+        }
+    </div>
+</div>

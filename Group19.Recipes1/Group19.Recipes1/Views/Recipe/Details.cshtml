@@ -1,0 +1,49 @@
+﻿@model Group19.Recipes1.Models.RecipeViewModel
+
+<div class="container">
+    <h2>Details of '@Html.DisplayFor(c => c.Name, new { @class = "col-md-10" })'</h2>
+    <div class="row">
+        @Html.LabelFor(c => c.Name, new { @class = "col-md-2" })
+        @Html.DisplayFor(c => c.Name, new { @class = "col-md-10" })
+    </div>
+    <div class="row">
+        @Html.LabelFor(c => c.Author, new { @class = "col-md-2" })
+        @Html.DisplayFor(c => c.Author, new { @class = "col-md-10" })
+    </div>
+    <div class="row">
+        @Html.LabelFor(c => c.PreparationTime, new { @class = "col-md-2" })
+        @Html.DisplayFor(c => c.PreparationTime, new { @class = "col-md-10" })
+    </div>
+    <div class="row">
+        @Html.LabelFor(c => c.CookingTime, new { @class = "col-md-2" })
+        @Html.DisplayFor(c => c.CookingTime, new { @class = "col-md-10" })
+    </div>
+    <div class="row">
+        @Html.LabelFor(c => c.CategoryViewModels, new { @class = "col-md-2" })
+        @foreach (var cat in Model.CategoryViewModels)
+        {
+            <div class="label label-info">@cat.Name</div>
+        }        
+    </div>
+    <div class="row">
+        @Html.LabelFor(c => c.IngredientViewModels, new { @class = "col-md-2" })
+        <div class="col-md-10">
+            <table class="table table-striped">
+                <tr>
+                    <th>Ingredient</th>
+                    <th>Quantity</th>
+                    <th>Measurement</th>
+                </tr>
+
+                @foreach (var Ingredient in Model.IngredientViewModels)
+                {
+                    @Html.Partial("EditorTemplates/IngredientViewModelView", Ingredient)
+                }
+            </table>
+        </div>
+    </div>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

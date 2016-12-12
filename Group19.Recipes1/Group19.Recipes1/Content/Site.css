@@ -1,0 +1,81 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+input[type=checkbox] {
+    margin: 10px 0 0;
+}
+
+#intro-grid .item {
+    box-shadow: 0 0 2px 1px #f2f2f2;
+    display: block;
+    width: 270px;
+    border: solid 1px #e6e6e6;
+    margin: 7px 7px 20px;
+    position: relative;
+    background-color: #fff;
+}
+
+#intro-grid .column {
+    position: relative;
+    padding-top: 10px;
+}
+
+/* These are the classes that are going to be applied: */
+.column { float: left; }
+.size-1of4 { width: 25%; }
+
+.item .recipeImage {
+    width: 250px;
+    margin: 9px;
+}
+
+.item .recipeName {
+    font-size: 17px;
+    color: #2d2d2d;
+    width: 90%;
+    display: block;
+    overflow: hidden;
+    margin: .15rem auto .4rem;
+    line-height: 1.3rem;
+}
+.item .recipeDesc {
+    padding-top: .5rem;
+    color: #7f7f7f;
+    clear: both;
+    font-size: 14px;
+    display: block;
+    margin: 0 auto 13px;
+    width: 94%;
+}
+
+.item .submitter {
+    padding-top: .5rem;
+    color: #2d2d2d;
+    clear: both;
+    font-size: 14px;
+    display: block;
+    margin: 0 auto 13px;
+    width: 94%;
+}

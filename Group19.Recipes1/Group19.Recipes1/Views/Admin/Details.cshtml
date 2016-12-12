@@ -1,0 +1,47 @@
+﻿@model Group19.Recipes1.Models.UserViewModel
+
+<div class="container">
+    @using (Html.BeginForm("Details", "Admin", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Update user:</h4>
+        @Html.HiddenFor(c => c.Id)
+        @Html.HiddenFor(c => c.UserRecipes)
+        @Html.HiddenFor(c => c.UserName)
+        <div class="form-group">
+            @Html.LabelFor(c => c.UserName, new {@class = "col-md-2 control-label"})
+            <div class="col-md-10">
+                <input id="user" value="@Model.UserName" class="form-control" readonly/>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.UserRecipes, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                <input id="user" value="@Model.UserRecipes" class="form-control" readonly />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(c => c.IsAdmin, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(c => c.IsAdmin, new { @checked = Model.IsAdmin })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(c => c.IsEditor, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(c => c.IsEditor, new { @checked = Model.IsEditor })
+            </div>
+        </div>
+        <input type="submit" value="Update" class="btn btn-success" />
+    }
+
+    <br />
+    @using (Html.BeginForm("Delete", "Admin", new { userId = Model.Id }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    }
+
+</div>

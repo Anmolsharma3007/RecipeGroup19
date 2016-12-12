@@ -1,0 +1,7 @@
+﻿@model Group19.Recipes1.Models.UserViewModel
+
+<tr>
+    <td>@Html.ActionLink(Model.UserName, "Details", new { id = Model.Id })</td>    
+    <td>@Html.CheckBox("isAdmin", Model.IsAdmin, new {@disabled = "disabled"})</td>
+    <td>@Html.CheckBox("isEditor", Model.IsEditor, new {@disabled = "disabled"})</td>
+</tr>

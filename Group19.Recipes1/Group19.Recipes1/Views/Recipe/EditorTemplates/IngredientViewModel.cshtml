@@ -1,0 +1,16 @@
+﻿@model Group19.Recipes1.Models.IngredientViewModel
+    
+<table class="table table-striped">
+    <tr>
+        <th>@Html.LabelFor(c => c.Product.Name)</th>
+        <th>@Html.LabelFor(c => c.Quantity)</th>
+        <th>@Html.LabelFor(c => c.MeasurementViewModel)</th>
+    </tr>
+    <tr>
+        <td>@Html.TextBoxFor(c => c.Product.Name, new {@class = "form-control"})</td>
+        <td>@Html.TextBoxFor(c => c.Quantity, new { @class = "form-control", @type = "number" })</td>
+        <td>@Html.DropDownListFor(c => c.MeasurementViewModel.Id, ViewBag.Measurements as SelectList, "--select--", new { @class = "form-control" })</td>
+    </tr>
+</table>
+
+
